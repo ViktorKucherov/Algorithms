@@ -1,2 +1,3 @@
 ﻿  main.c
+G:\Algorithms\1_задание\1_task\main.c(147,10): warning C4098:  age: функция типа "void", возвращающая значение
   1_task.vcxproj -> G:\Algorithms\1_задание\1_task\Debug\1_task.exe
