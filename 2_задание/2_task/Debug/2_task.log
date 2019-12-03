@@ -1,0 +1,3 @@
+﻿  main.c
+G:\Algorithms\2_задание\2_task\main.c(59): warning C4715:  recursion: значение возвращается не при всех путях выполнения
+  2_task.vcxproj -> G:\Algorithms\2_задание\2_task\Debug\2_task.exe
