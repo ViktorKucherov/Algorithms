@@ -57,6 +57,15 @@ int recursion(int firstNumber, int lastNumber, int temp, int i, int j, int count
 	}
 	
 }
+int calc(int from, int to) {
+	if (from < to)
+		return calc(from + 1, to) + calc(from * 2, to);
+	else if (from == to)
+		return 1;
+	else
+		return 0;
+}
+
 
 int main() {
 
@@ -64,6 +73,7 @@ int main() {
 	printf("1 задание: "); dec_to_bin(10);
 	printf("\n2.1 задание: %d", recursive_power(2, 7));
 	printf("\n2.2 задание: %d\n", recursive_power_improved(2, 7));
-	printf ("\n\nЗадание 4: имеется %d решений:", recursion(3, 20, 0, 0, 0, 0));
+	//printf ("\n\nЗадание 4: имеется %d решений:", recursion(3, 20, 0, 0, 0, 0));
+	printf("\n%d \n", calc(3, 20));
 	return 0;
 }
