@@ -1,2 +1,10 @@
 ﻿  main.c
+G:\Algorithms\3_задание\3_task\main.c(171,16): warning C4047:  функция: "int *" отличается по уровням косвенного обращения от "int (*)[10]"
+G:\Algorithms\3_задание\3_task\main.c(171,16): warning C4024:  fillArray: различные типы для формального и фактического параметров 1
+G:\Algorithms\3_задание\3_task\main.c(172,17): warning C4047:  функция: "int *" отличается по уровням косвенного обращения от "int (*)[10]"
+G:\Algorithms\3_задание\3_task\main.c(172,17): warning C4024:  printArray: различные типы для формального и фактического параметров 1
+G:\Algorithms\3_задание\3_task\main.c(175,18): warning C4047:  функция: "int *" отличается по уровням косвенного обращения от "int (*)[10]"
+G:\Algorithms\3_задание\3_task\main.c(175,18): warning C4024:  myShakeSort: различные типы для формального и фактического параметров 1
+G:\Algorithms\3_задание\3_task\main.c(176,17): warning C4047:  функция: "int *" отличается по уровням косвенного обращения от "int (*)[10]"
+G:\Algorithms\3_задание\3_task\main.c(176,17): warning C4024:  printArray: различные типы для формального и фактического параметров 1
   3_task.vcxproj -> G:\Algorithms\3_задание\3_task\Debug\3_task.exe

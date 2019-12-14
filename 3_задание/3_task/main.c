@@ -3,28 +3,55 @@
 
 #include "stdio.h"
 #include "math.h"
+#include <stdlib.h>
+#include <string.h>
+#include <io.h>
+
 //#include "stdafx.h"
 #include "locale.h"
 
 #define numberElements 10
+
+int myBinarySearchMainFunc(int* arr, int searchingKey, int right, int left) {
+	if (arr[right] > searchingKey || arr[left] < searchingKey) { //сразу проверяем на наличие элемента в списке
+		return numberElements;
+	}
+	int middle;
+	middle = (left+right) / 2; // определяем середину
+	if (arr[middle] == searchingKey) {
+		return middle;
+	}
+	else {
+		if (arr[middle] > searchingKey) {
+			return myBinarySearchMainFunc(arr, searchingKey, right, middle-1);
+		}
+		else {
+			return myBinarySearchMainFunc(arr, searchingKey, middle+1, left);
+		}
+	} 
+
+}
 
 void swapFunc(int* first, int* second) {
 	*first ^= *second;
 	*second ^= *first;
 	*first ^= *second;
 }
+
 void printArray(int* arr) {
 	for (int i = 0; i < numberElements; i++) {
 		printf("%d ", *(arr + i));
 	}
 	printf("\n");
 }
+
 void fillArray(int* arr) {
 	for (int i = 0; i < numberElements; i++) {
 		printf("array[%d] = ", i);
 		scanf_s("%d", &arr[i]);
 	}
 }
+
 void myBubbleSort(int* arr) {
 	int operation = 0;
 	for (int i = 0; i < numberElements; i++) {
@@ -90,7 +117,6 @@ void myListSearch(int* arr) {
 
 }
 
-
 void myLineSearchRecursive(int* arr, int * resultIndexes, int keyNumber, int i, int jIndex) {
 	
 	if (i < numberElements-1) {
@@ -112,8 +138,7 @@ void myLineSearchRecursive(int* arr, int * resultIndexes, int keyNumber, int i, 
 
 }
 
-
-void myListSearch(int *rawArr, int *sortedArr)
+void myLineSearch(int *rawArr, int *sortedArr)
 {
 	int orderIndex;
 	for (int i = 0; i < numberElements; i++)
@@ -130,8 +155,54 @@ void myListSearch(int *rawArr, int *sortedArr)
 
 int main(int argc, const char** argv) {
 	setlocale(LC_ALL, "rus");
-	int array[numberElements];
+	int arr[numberElements];
 	int array2[numberElements] = {0};
+
+
+	int s = 301, n = 0;
+	while (s>0){
+		s = s - 10;
+		n = n + 2;
+	}
+	printf("%d\n\n", n);
+
+	//4.3 Реализовать бинарный поиск.
+	printf("Реализуем бинарный поиск в массиве.\nВведите элементы массива:\n");
+	fillArray(&arr); // для начала создадим массив
+	printArray(&arr); // выведем его в консоль
+
+	printf("Отсортируем массив:\n");
+	myShakeSort(&arr); //отсортируем шейкерной сортировкой
+	printArray(&arr); // посмотрим что получилось
+
+	int right, left;
+	right = 0;
+	left = numberElements-1;
+	int searchingKey;
+	printf("\nВведите число для поиска:\n");
+	scanf_s("%d", &searchingKey);
+
+
+	int result = myBinarySearchMainFunc(arr, searchingKey, right, left);
+	searchingKey == arr[result] ? printf("Данное значение содержится в массиве под индексом %d", result) : printf("Данного числа в массиве нет!");
+
+
+	
+					   
+					   
+					   
+					   
+					   
+					   
+					   
+					   
+					   
+					   
+					   
+					   
+					   
+					   
+					   
 	//1+2 task (Пузырьковая сортировка - модифицированная) + Подсчет количества операций swap
 	/*fillArray(array);
 	printArray(array);
@@ -145,7 +216,7 @@ int main(int argc, const char** argv) {
 	printArray(array);*/
 
 	// 4.1 Линейный поиск
-	myListSearch(array);
+	//myListSearch(array);
 
 	//4.2 task (Линейный поиск рекурсией)
 	/*printf("Создайте массив из 10 элементов:\n");
